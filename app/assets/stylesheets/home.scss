@@ -1,3 +1,241 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Variables
+
+$naranja:  #f99d29;
+$overlay: #161824;
+$rojo: #e74b3b ;
+// Fonts
+
+@font-face {
+    font-family: 'bariol_regular';
+    src: url('/assets/bariol/bariol_regular-webfont.eot');
+    src: url('/assets/bariol/bariol_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/bariol/bariol_regular-webfont.woff2') format('woff2'),
+         url('/assets/bariol/bariol_regular-webfont.woff') format('woff'),
+         url('/assets/bariol/bariol_regular-webfont.ttf') format('truetype'),
+         url('/assets/bariol/bariol_regular-webfont.svg#bariol_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+} 
+@font-face {
+    font-family: 'fonarto_regular';
+    src: url('/assets/fonarto/fonarto-webfont.eot');
+    src: url('/assets/fonarto/fonarto-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonarto/fonarto-webfont.woff2') format('woff2'),
+         url('/assets/fonarto/fonarto-webfont.woff') format('woff'),
+         url('/assets/fonarto/fonarto-webfont.ttf') format('truetype'),
+         url('/assets/fonarto/fonarto-webfont.svg#fonartoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// General Classes
+.button-main {
+	border-radius:5px;
+	color:#fff;		
+	font-size:1.2em;	
+	margin: 10px;			
+	padding:10px 20px;
+	text-decoration:none;
+}
+.fill {
+	background:$rojo;
+	border: 1px solid transparent;
+	transition:all .3s ease;
+}
+.fill:hover{
+	background:$overlay;
+	color:#fff;
+	text-decoration:none;
+}
+.empty {
+	border: 1px solid #FFF;
+	transition:all .3s ease;
+}
+.empty:hover{
+	background:#fff;
+	color:$overlay;
+	text-decoration:none;
+}
+.divisor{
+	background:rgb(232,75,60);
+	border:0;
+	height:1px;
+	position:relative;
+	width:100px;
+}
+.divisor:after{
+	content: '';
+	background:rgb(231,75,60);
+	height:1px;
+	left:5px;
+	position:absolute;
+	top:4px;
+	width: 90px;
+}
+.overlay {
+	background:rgba(22,23,36, .75);
+}
+
+// General Styles
+body {
+	font-family: 'bariol_regular' !important;
+	font-size:16px !important;
+	text-align:center;
+}
+h2 {
+	color:#4E4D61 !important;
+	font-family: 'fonarto_regular' !important;
+	margin:0;
+}
+p {
+	color: #9F9595;
+	line-height:1.5em;
+}
+.landing {
+	background:url('/assets/images/condor.jpg') no-repeat center fixed;
+	background-size:cover;
+	position:relative;
+	.overlay{
+		height:100%;
+		.container {
+			.info-main{
+				color:#fff;
+				left:0;
+				position:absolute;
+				right:0;
+				top:12%;
+				h1 {
+					margin:0;
+					a {
+						img {
+							width:240px;
+						}		
+					}
+				}
+				p {
+					color:#fff;
+					font-size:1.6em;
+					margin-bottom:40px;
+				}
+				.buttons{
+					margin-top: 120px;					
+				}
+			}
+			.down{
+				bottom:3%;
+				color:#fff;
+				font-size:.75em;
+				left:0;
+				position:absolute;
+				right:0;
+			}
+		}
+
+	}
+}
+.about{
+	padding: 4em 0;
+	.container {
+		p{
+			font-size:1.5em;
+			
+		}
+	}
+}
+.video {
+	background:url('/assets/images/collage.jpg') no-repeat center fixed;
+	background-size:cover;
+	.overlay {
+		height:100%;
+		min-height:350px;
+		.container{
+			.play-video{
+				a {
+					color:#fff;
+					font-size:2em;
+					text-decoration:none;
+				}
+			}
+		}
+	}
+}
+.categories {
+	padding:4em 0;
+	.container {
+		.row {
+			margin: 3em 0;
+			.column-4 {
+				.circle {
+					border-radius:50%;
+					height:62px;
+					margin:0 auto;
+					position:relative;
+					width:62px;
+					p {
+						color:white;
+						font-size: 1.5em;
+						left:0;
+						position:absolute;
+						right:0;
+						top:14px;
+					}
+				}
+				.ep {
+					background: $rojo;
+				}
+				.am {
+					background: $naranja;
+				}
+				.vn {
+					background: #D5D5D5;
+				}
+				h3 {
+					color:#9F9595;
+					margin:.5em;
+				}
+			}
+		}
+
+	}
+}
+.how-to-help {
+	background:url('/assets/images/gallito.jpg')no-repeat fixed center;
+	background-size:cover;	
+	color:white;
+	.overlay {
+		height:100%;
+		padding:4em 0 6em 0;
+		.container{
+			h2 {
+				color:#fff !important;
+			}
+			.row {
+				.column-4{
+					h3 {
+						font-family: 'fonarto_regular';
+						color: $rojo;
+					}
+					p {
+						color:#fff;
+						font-size: 1.3em;
+						margin-bottom: 1em;
+					}
+					.button-main:hover {
+						color:#fff;
+						text-decoration:none;						
+					}
+				}
+			}
+		}
+	}
+}
+
+.volunteer{
+	padding:4em;
+}
+footer {
+	background: $overlay;
+	color:#fff;
+	padding:3em 0;
+}

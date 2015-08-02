@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+ <div id="fullpage">
+ 	<%= yield %>
+ </div>
+<script>
+	
+	function setDimensions(){
+		var windowsHeight = $(window).height();
+		$('.landing').css('height', windowsHeight + 'px');
+	}
 
-<%= yield %>
+	setDimensions();
 
+	//when resizing the site, we adjust the heights of the image
+	$(window).resize(function() {
+		setDimensions();
+	});
+
+</script>
 </body>
 </html>
