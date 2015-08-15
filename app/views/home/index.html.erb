@@ -6,8 +6,8 @@
 				<p>Ayudemos a los animales en peligro de extinción</p>
 				<hr class="divisor">
 				<div class="buttons">
-					<a href="" class="button-main fill">Ver lista de animales!</a>
-					<a href="" class="button-main empty">¿Cómo ayudar?</a>
+				<%= link_to "Ver lista de animales", animals_path(), class: "button-main fill" %>
+					<a href="#hth" class="button-main empty">¿Cómo ayudar?</a>
 				</div>
 			</article>
 			<div class="down">
@@ -70,7 +70,7 @@
 		</div>
 	</div>
 </section>
-<section class="how-to-help">
+<section class="how-to-help" id="hth">
 	<div class="overlay">
 		<div class="container">
 			<h2>¿Cómo Ayudar?</h2>
@@ -112,36 +112,151 @@
 			<div class="col-lg-3 col-md-3 col-sm-3 column-3">
 				<div class="project">
 					<figure>
-						<img src="" alt="">
+						<%= image_tag '/assets/images/condor.jpg' %>
 						<figcaption>
-							Detalles
+							Completado
 						</figcaption>
 					</figure>
 					<div class="project-detail">
-						<p>Proyecto: Recaudación</p>
-						<h3><a href="">Salvemos al condor Peruano</a></h3>
+						<div class="head-project">
+							<h3><a href="" class="blue">Salvemos al condor Peruano</a></h3>
+						</div>						
 						<div class="progress-bar"></div>
 						<div class="target">
-							<div class="col-lg-4">
+							<div class="col-lg-3 col-md-3 col-sm-3 column-3">
 								<p class="big">60%</p>
 							</div>
-							<div class="col-lg-4">
+							<div class="col-lg-4 col-md-4 col-sm-4 column-4">
 								<p>13</p>
 								<p class="small">Patrocinan</p>
 							</div>
-							<div class="col-lg-4">
-								<p>S/. 600.00</p>
-								<p class="small">Objetivo</p>
+							<div class="col-lg-5 col-md-5 col-sm-5 column-5">
+								<p><span class="small-t">S/.</span> 600</p>
+								<p class="small">meta</p>
 							</div>
 						</div>
 						<div class="share">
 							<p>Compartir en:</p>
-							<a href="" class="square">f</a>
-							<a href="" class="square">t</a>
-							<a href="" class="square">g+</a>
+							<a href="" class="square icon facebook-ico" title="Compartir en Facebook"></a>
+							<a href="" class="square icon twitter-ico" title="Compartir en Twitter"></a>
+							<a href="" class="square icon google-ico" title="Compartir en Google +"></a>
 						</div>
 						<div class="by-user">
-							<spam>POR <a href="">YORESCATO</a></spam>							
+							<span>POR <a href="">YORESCATO</a></span>							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 column-3">
+				<div class="project">
+					<figure>
+						<%= image_tag '/assets/images/condor.jpg' %>
+						<figcaption>
+							Completado
+						</figcaption>
+					</figure>
+					<div class="project-detail">
+						<div class="head-project">
+							<h3><a href="" class="blue">Salvemos al condor Peruano</a></h3>
+						</div>						
+						<div class="progress-bar"></div>
+						<div class="target">
+							<div class="col-lg-3 col-md-3 col-sm-3 column-3">
+								<p class="big">60%</p>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 column-4">
+								<p>13</p>
+								<p class="small">Patrocinan</p>
+							</div>
+							<div class="col-lg-5 col-md-5 col-sm-5 column-5">
+								<p><span class="small-t">S/.</span> 600</p>
+								<p class="small">meta</p>
+							</div>
+						</div>
+						<div class="share">
+							<p>Compartir en:</p>
+							<a href="" class="square icon facebook-ico" title="Compartir en Facebook"></a>
+							<a href="" class="square icon twitter-ico" title="Compartir en Twitter"></a>
+							<a href="" class="square icon google-ico" title="Compartir en Google +"></a>
+						</div>
+						<div class="by-user">
+							<span>POR <a href="">YORESCATO</a></span>							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 column-3">
+				<div class="project">
+					<figure>
+						<%= image_tag '/assets/images/condor.jpg' %>
+						<figcaption>
+							Completado
+						</figcaption>
+					</figure>
+					<div class="project-detail">
+						<div class="head-project">
+							<h3><a href="" class="blue">Salvemos al condor Peruano</a></h3>
+						</div>						
+						<div class="progress-bar"></div>
+						<div class="target">
+							<div class="col-lg-3 col-md-3 col-sm-3 column-3">
+								<p class="big">60%</p>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 column-4">
+								<p>13</p>
+								<p class="small">Patrocinan</p>
+							</div>
+							<div class="col-lg-5 col-md-5 col-sm-5 column-5">
+								<p><span class="small-t">S/.</span> 600</p>
+								<p class="small">meta</p>
+							</div>
+						</div>
+						<div class="share">
+							<p>Compartir en:</p>
+							<a href="" class="square icon facebook-ico" title="Compartir en Facebook"></a>
+							<a href="" class="square icon twitter-ico" title="Compartir en Twitter"></a>
+							<a href="" class="square icon google-ico" title="Compartir en Google +"></a>
+						</div>
+						<div class="by-user">
+							<span>POR <a href="">YORESCATO</a></span>							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 column-3">
+				<div class="project">
+					<figure>
+						<%= image_tag '/assets/images/condor.jpg' %>
+						<figcaption>
+							Completado
+						</figcaption>
+					</figure>
+					<div class="project-detail">
+						<div class="head-project">
+							<h3><a href="" class="blue">Salvemos al condor Peruano</a></h3>
+						</div>						
+						<div class="progress-bar"></div>
+						<div class="target">
+							<div class="col-lg-3 col-md-3 col-sm-3 column-3">
+								<p class="big">60%</p>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 column-4">
+								<p>13</p>
+								<p class="small">Patrocinan</p>
+							</div>
+							<div class="col-lg-5 col-md-5 col-sm-5 column-5">
+								<p><span class="small-t">S/.</span> 600</p>
+								<p class="small">meta</p>
+							</div>
+						</div>
+						<div class="share">
+							<p>Compartir en:</p>
+							<a href="" class="square icon facebook-ico" title="Compartir en Facebook"></a>
+							<a href="" class="square icon twitter-ico" title="Compartir en Twitter"></a>
+							<a href="" class="square icon google-ico" title="Compartir en Google +"></a>
+						</div>
+						<div class="by-user">
+							<span>POR <a href="">YORESCATO</a></span>							
 						</div>
 					</div>
 				</div>

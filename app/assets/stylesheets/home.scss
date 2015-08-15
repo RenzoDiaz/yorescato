@@ -48,6 +48,9 @@ $rojo: #e74b3b ;
 	padding:10px 20px;
 	text-decoration:none;
 }
+.blue {
+	color:#41A9E5;
+}
 .fill {
 	background:$rojo;
 	border: 1px solid transparent;
@@ -113,7 +116,12 @@ $rojo: #e74b3b ;
 }
 
 // General Styles
+a, a:hover, a:visited, a:link, a:active{
+	text-decoration:none !important;
+}
+
 body {
+	background: #f9f9fb !important;
 	font-family: 'bariol_regular' !important;
 	font-size:16px !important;
 	text-align:center;
@@ -324,23 +332,115 @@ p {
 	padding:4em;
 	.container {
 		.row {
+			margin: 3em 0;
 			.column-3 {
 				.project {
+					background:white;
+					border: 1px solid #f2f2f2;
+					border-radius: .5em;
+					overflow:hidden;
 					figure {
 						padding:0;
+						position:relative;
+						img {
+							width:100%
+						}
 						figcaption {
+							background:#64A716;
+							color:white;
+							font-size: .75em;
+							left:-75px;
 							padding:0;
+							position:absolute;
+							top:30px;
+							text-transform:uppercase;
+							transform: rotate(-35deg);
+							width: 100%;
 						}
 					}
-					.project-detail{
+					.project-detail{						
 						text-align:left;
-						p {
-							color:#9F9F9F;
+						.head-project {
+							padding: .5em 1em;
+							h3 {
+								font-size: 1.2em;
+								margin:0;						
+							}
+						}	
+						.progress-bar {
+							background: $rojo;
+							height:3px;
+							margin: .5em 1em 1em 0 ;
+							width:100%
+						}					
+						.target {
+							padding: 0 1em;
+							text-align:center;
+							.column-3, .column-4, .column-5{
+								p {									
+									margin:0;
+									.small-t{
+										font-size:.7em;
+										margin:0;
+									}
+								}								
+							}
 						}
-					}
-					.by-user{
-						background: $rojo;
-					}
+						.share {
+							padding:5em 1em 1em 1em;  
+							p {
+								display:inline-block;
+								margin:.1em;
+								vertical-align:top;
+							}
+							.square {
+								border-radius:.3em;
+								display:inline-block;								
+								height:25px;
+								margin:.1em .2em;
+								width: 25px;								
+							}
+							.facebook-ico {
+								background:#3b5998;
+							}
+							.twitter-ico {
+								background:#00aced;
+							}
+							.google-ico {
+								background:#d34836;
+							}
+							.facebook-ico:before {								
+								color:white;
+								content: '\e002';
+								font-size:1em;
+								margin-left:5px;
+							}
+							.twitter-ico:before {								
+								color:white;
+								content: '\e009';
+								font-size:1em;
+								margin-left:5px;
+							}
+							.google-ico:before {								
+								color:white;
+								content: '\e003';
+								font-size:1em;
+								margin-left:5px;
+							}
+						}
+						.by-user{
+							background: $rojo;
+							font-size: .75em;
+							padding:.5em;
+							text-align:center;
+							span {
+								a {
+									color:white;
+								}
+							}
+						}
+					}					
+					
 				}
 			}
 		}
