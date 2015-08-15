@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Yorescato</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -24,13 +25,13 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4 column-4">
 					<h3>Suscribete</h3>
-					<form action="">
+					<%= form_for Lead.new, remote: true do |f| %>
 						<div class="outline-submit">
-							<input type="text" placeholder="Email">
-							<input type="submit" value="Ok" class="button-submit">
-							<i class="icon submit-ico"></i>
-						</div>						
-					</form>
+						<%= f.email_field :email, placeholder:'Email' %>
+						<%= f.hidden_field :device, :value => request.env['mobvious.device_type'] %>
+						<%= f.button 'OK', {class: 'button-submit'} %>
+						</div>
+					<% end %>					
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 column-4">
 					<h3>Siguenos en:</h3>
@@ -48,7 +49,7 @@
 					</div>
 				</div>
 			</div>
-			<p>&copy; yorescato</p>
+			<p>&copy; yorescato</p>			
 		</div>
 	</footer>
 </div>
