@@ -1,0 +1,7 @@
+<% if @result %>
+	$('#response').addClass('save-success');
+	$('#response').text('Enhorabuena ya estas suscrito a Yorescato!');
+<% else %>	
+	$('#response').addClass('save-fail');
+	$('#response').text('No pudimos suscribirlo intente con otro E-mail');
+<% end %>

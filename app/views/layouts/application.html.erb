@@ -25,11 +25,14 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4 column-4">
 					<h3>Suscribete</h3>
-					<%= form_for Lead.new, remote: true do |f| %>
+					<% @country = Geocoder::search(@client_ip).first.country %>
+					<%= form_for Lead.new, :remote => true do |f| %>
 						<div class="outline-submit">
 						<%= f.email_field :email, placeholder:'Email' %>
 						<%= f.hidden_field :device, :value => request.env['mobvious.device_type'] %>
-						<%= f.button 'OK', {class: 'button-submit'} %>
+						<%= f.hidden_field :country, :value => @country %>
+						<%= f.button 'OK', {class: 'button-submit'} %>	
+						<p id="response"></p>		
 						</div>
 					<% end %>					
 				</div>
