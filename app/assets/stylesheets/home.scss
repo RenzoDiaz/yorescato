@@ -1,5 +1,7 @@
 // Variables
 
+$text: #6C7A89;
+$naranja2: #E67E22;
 $naranja:  #f99d29;
 $overlay: #161824;
 $rojo: #e74b3b ;
@@ -144,6 +146,70 @@ p {
 	color: #9F9595;
 	line-height:1.5em;
 }
+header {
+	background: #fff;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	max-height:47px;
+	padding:.2em 0;
+	position:fixed;
+	top:0;
+	width:100%;
+	z-index:100000;
+	.container{
+		text-align:left;
+		h1 {
+			display:inline-block;
+			font-size:1em;
+			margin:0;
+			a {
+				img {
+					width:50px;
+				}
+			}
+		}
+		.menu-top {
+			float:right;
+			display:inline-block;
+			vertical-align:top;
+			ul {
+				li {
+					display:inline-block;
+					form {
+						.search-field {
+							background: #f9f9fb;
+							border: 1px solid #d9d9d9;
+							border-radius:1em;
+							margin-top:.2em;
+							padding: .3em 1em .3em .75em;
+							outline:none;
+							width: 250px;
+						}
+						.search-field:focus {
+							background:#fff;
+						}
+					}
+					a {					
+						border-radius:.5em;
+						color:$text;
+						padding: .4em 1em;
+					}
+					a:hover {
+						color:$naranja2;
+					}
+					.donate-button {
+						background: $text;
+						color:white;
+						transition:all .3s ease;
+					}
+					.donate-button:hover {
+						background:$naranja2;
+						color:white;
+					}
+				}
+			}
+		}
+	}
+}
 .landing {
 	background:url('/assets/images/condor.jpg') no-repeat center fixed;
 	background-size:cover;
@@ -159,10 +225,8 @@ p {
 				top:12%;
 				h1 {
 					margin:0;
-					a {
-						img {
-							width:240px;
-						}		
+					img {
+						width:240px;
 					}
 				}
 				p {
@@ -556,6 +620,96 @@ footer {
 		}
 	}
 }
+
+
+// Animals List 
+.filter {
+	background: white;
+	margin-top:60px;
+	padding: 3em 1em;
+}
+.list-animals {
+	padding: 3em 1em;
+	.container {
+		.row {
+			.list-item {
+				.tile-gallery {
+					.column-6 {
+						text-align:left;
+						.specie-item {
+							border:1.5px solid #d9d9d9;
+							border-radius: .5em;
+							background:white;
+							margin:1em 0;
+							overflow:hidden;
+							position:relative;
+							transition:all .3s ease;
+							figure {
+								display:inline-block;
+								width:45%;
+								img {
+									max-height:160px;
+								}
+							}
+							.details-of-specie {
+								display: inline-block;
+								padding: .5em 1em;
+								vertical-align:top;
+								.head-name {
+									h3 {
+										font-size:1.2em;
+										font-weight:bold;
+										margin:0;
+										a {
+											color: #34495E;
+										}
+									}
+									p {
+										color:$text;
+										font-size: .9em;
+										margin:0;
+									}
+								}
+								.species-habitat {
+									border-left: 1.5px solid $naranja2;
+									margin: 0.5em 0;
+									padding:0 .5em;
+									p {
+										color: $text;
+										font-weight:bold;
+										margin:0;
+										span {
+											font-weight:normal;
+										}
+									}
+								}
+							}
+						}
+						.btn-details {
+							bottom:0;
+							position:absolute;
+							right:0;
+							text-align:center;
+							top:0;
+							a {
+								background: $naranja2;
+								color:white;
+								display:block;
+								padding-top:60px;
+								height:100%;
+								width:30px;
+							}
+						}
+					}
+					.specie-item:hover {
+						border:1.5px solid $naranja2;
+					}
+				}
+			}
+		}
+	}
+}
+
 // Media Queries
 @media screen and (min-width: 320px) and (max-width: 666px){
 	

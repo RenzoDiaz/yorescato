@@ -19,6 +19,28 @@
 </head>
 <body>
 <div id="fullpage">
+<% if @navbar %>
+	<header>
+		<div class="container">
+			<h1><a href="/"><%= image_tag 'logoyorescato.png' %></a></h1>
+			<nav class="menu-top">
+				<ul>
+					<li>
+						<form action="">
+							<input type="text" class="search-field" placeholder="Buscar">
+						</form>
+					</li>
+					<li>
+						<a href="" class="">Ingresar</a>
+					</li>
+					<li>
+						<a href="" class="donate-button">Donate</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+<% end %>
  	<%= yield %>
 	<footer>
 		<div class="container">
