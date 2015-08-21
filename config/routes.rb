@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :leads
-  root 'home#index'
-  get 'animals' => 'animals#index'
+  resources :leads, :statuses
 
+  root 'home#index'
+  get 'species' => 'species#index'
+  get 'species/new' => 'species#new'
+  post 'species/create' => 'species#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

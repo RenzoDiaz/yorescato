@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  country: MyString
+  habitat: MyText
+  nutrition: MyText
+  population: MyString
+  image: MyString
+  need: MyString
+  need: MyText
+
+two:
+  name: MyString
+  description: MyText
+  country: MyString
+  habitat: MyText
+  nutrition: MyText
+  population: MyString
+  image: MyString
+  need: MyString
+  need: MyText

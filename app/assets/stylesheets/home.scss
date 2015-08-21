@@ -163,7 +163,14 @@ header {
 			margin:0;
 			a {
 				img {
-					width:50px;
+					-webkit-filter:grayscale(.9);
+					opacity: .8;
+					transition: all .3s ease;
+					width:100px;
+				}
+				img:hover {
+					-webkit-filter:grayscale(0);
+					opacity: 1;
 				}
 			}
 		}
@@ -705,6 +712,20 @@ footer {
 						border:1.5px solid $naranja2;
 					}
 				}
+			}
+		}
+	}
+}
+
+.create-form {
+	margin-top: 60px;
+	padding:2em 1em;
+	.container {
+		article {
+			margin:0 auto;
+			max-width:550px;
+			h3 {
+				color: $naranja2;
 			}
 		}
 	}

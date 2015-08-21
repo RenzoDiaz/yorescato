@@ -57,3 +57,7 @@ gem 'mobvious'
 gem 'geocoder', '~> 1.2.9'
 # For mailchimp 
 gem 'gibbon', '~> 1.2.1'
+# CKEditor
+gem 'ckeditor_rails'
+# Country Select
+gem 'country_select'

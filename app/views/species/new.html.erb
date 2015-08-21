@@ -1,0 +1,55 @@
+<section class="create-form">
+	<div class="container">
+		<article class="new">
+			<h3>Agregar Nueva Especie</h3>
+			<%= form_for Specie.new, url: {action: "create"},:html => { :multipart => true }, :remote => true do |f| %>
+				<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+				<div class="form-group">
+					<%= f.text_field :name, :class => 'form-control', :placeholder=> 'Nombre' %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :scientific_name, :class => 'form-control', :placeholder=> 'Nombre Cientifico' %>
+				</div>
+				<div class="form-group">
+					<%= f.country_select :country, :class => 'form-control' %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :population, :class => 'form-control', :placeholder=> 'Poblacion' %>
+				</div>
+				<div class="form-group">
+					<%= f.label 'Seleccione la categoria de extinción:' %> 
+					<%= f.select :statuses_id, options_from_collection_for_select(Status.all, :id, :name), :class => "form-control" %>
+				</div>
+				<div class="form-group">
+					<%= f.label 'Seleccione un santuario:' %> 
+					<%= f.select :shrines_id, options_from_collection_for_select(Shrine.all, :id, :name), :class => "form-control" %>
+				</div>
+				<div class="form-group">					
+					<%= f.text_field :need, :class => 'form-control', :placeholder=> '¿Qué necetita la especie ?' %>
+				</div>
+				<div class="form-group">
+					<%= f.file_field :picture, :class => 'form-control' %>
+				</div>
+				<div class="form-group">
+					<%= f.text_area :habitat, :class => 'form-control', :placeholder => 'Habitat de la especie...' %>
+				</div>
+				<div class="form-group">
+					<%= f.label 'Descripcion de la especie:' %> 
+					<%= f.text_area :description, :class => 'form-control ckeditor' %>
+				</div>				
+				<div class="form-group">
+					<%= f.label 'Descripcion de la alimentación:' %> 
+					<%= f.text_area :nutrition, :class => 'form-control ckeditor' %>
+				</div>	
+				<div class="form-group">
+					<%= f.label 'Amenaza de extincion:' %> 
+					<%= f.text_area :threats, :class => 'form-control ckeditor' %>
+				</div>							
+				<div class="form-group">
+					<%= f.button 'Agregar', {class: 'btn btn-info'} %>
+				</div>
+				<p id="response"></p>
+			<% end %>
+		</article>
+	</div>
+</section>

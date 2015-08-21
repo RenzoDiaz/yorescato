@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815043544) do
+ActiveRecord::Schema.define(version: 20150819005431) do
 
   create_table "leads", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -20,6 +20,39 @@ ActiveRecord::Schema.define(version: 20150815043544) do
     t.string   "device",     limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "shrines", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.string   "image",       limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "species", force: :cascade do |t|
+    t.integer  "statuses_id",     limit: 4
+    t.integer  "shrines_id",      limit: 4
+    t.string   "name",            limit: 255
+    t.string   "scientific_name", limit: 255
+    t.text     "description",     limit: 65535
+    t.string   "country",         limit: 255
+    t.text     "habitat",         limit: 65535
+    t.text     "nutrition",       limit: 65535
+    t.string   "population",      limit: 255
+    t.text     "threats",         limit: 65535
+    t.string   "image",           limit: 255
+    t.string   "need",            limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.string   "prefix",      limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

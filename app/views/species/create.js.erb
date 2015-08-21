@@ -1,0 +1,7 @@
+<% if @result %>
+	$('#response').addClass('save-success');
+	$('#response').text('Especie agregada con exito!');
+<% else %>	
+	$('#response').addClass('save-fail');
+	$('#response').text('No pudimos agregar la especie intente otra!');
+<% end %>
