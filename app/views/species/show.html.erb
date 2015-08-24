@@ -1,0 +1,70 @@
+<section class="specie-profile">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 sidebar-specie">
+				<figure>
+					<%= image_tag "/species/#{@specie.id}/profile/#{@specie.image}"%>
+				</figure>
+				<ul>
+					<li class="active">
+						<a href="#desc">Descripción</a>
+					</li>
+					<li>
+						<a href="#habitat">Habitat</a>
+					</li>
+					<li>
+						<a href="#diet">Dieta</a>
+					</li>
+					<li>
+						<a href="#threat">Amenaza</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-lg-9 content-sidebar">
+				<article class="spec">
+					<h3><%= @specie.name %></h3>
+					<p><%= @specie.scientific_name %></p>
+					<div class="detail">
+						<div class="col-lg-4 column-4">
+							<div class="circle ep">
+								<p><%= Status.find(@specie.statuses_id).prefix %></p>
+							</div>
+							<div class="wrap">
+								<p>ESTADO</p>
+								<span><%= Status.find(@specie.statuses_id).name %></span>
+							</div>						
+						</div>
+						<div class="col-lg-4 column-4">
+							<div class="icono">
+								<i class="icon fish-group-ico"></i>
+							</div>							
+							<div class="wrap">
+								<p>POBLACIÓN</p>
+								<span><%= @specie.population %></span>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<a href="">Adoptar</a>
+						</div>
+					</div>
+					<div id="desc" class="info-specie">
+						<h4>Vista General</h4>
+						<%= @specie.description.html_safe %>
+					</div>
+					<div id="habitat" class="info-specie">
+						<h4>Habitat</h4>
+						<p><%= @specie.habitat %></p>
+					</div>
+					<div id="diet" class="info-specie">
+						<h4>Alimentación</h4>
+						<%= @specie.nutrition.html_safe %>
+					</div>
+					<div id="threat" class="info-specie">
+						<h4>Amenzas</h4>
+						<%= @specie.threats.html_safe %>
+					</div>
+				</article>								
+			</div>				
+		</div>
+	</div>
+</section>

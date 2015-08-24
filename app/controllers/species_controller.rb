@@ -31,7 +31,11 @@ class SpeciesController < ApplicationController
 		@client_ip = remote_ip()
 	end
 
-
+	def show
+		@specie = Specie.find(params[:id])
+		@navbar = true
+		@client_ip = remote_ip()
+	end
 
 	private 
 

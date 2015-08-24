@@ -61,3 +61,7 @@ gem 'gibbon', '~> 1.2.1'
 gem 'ckeditor_rails'
 # Country Select
 gem 'country_select'
+# Gmaps4rails ->require underscore
+gem 'gmaps4rails'
+# Underscore for Gmaps4rails
+gem 'underscore-rails'
