@@ -74,6 +74,8 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     geocoder (1.2.9)
     gibbon (1.2.1)
       httparty
@@ -198,6 +200,7 @@ DEPENDENCIES
   ckeditor_rails
   coffee-rails (~> 4.1.0)
   country_select
+  friendly_id (~> 5.1.0)
   geocoder (~> 1.2.9)
   gibbon (~> 1.2.1)
   gmaps4rails

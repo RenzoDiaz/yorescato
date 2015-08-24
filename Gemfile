@@ -65,3 +65,5 @@ gem 'country_select'
 gem 'gmaps4rails'
 # Underscore for Gmaps4rails
 gem 'underscore-rails'
+# Friendly ID
+gem 'friendly_id', '~> 5.1.0'

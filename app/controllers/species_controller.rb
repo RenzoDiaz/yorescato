@@ -32,7 +32,8 @@ class SpeciesController < ApplicationController
 	end
 
 	def show
-		@specie = Specie.find(params[:id])
+		@specie = Specie.friendly.find(params[:id])
+		@title = @specie.name
 		@navbar = true
 		@client_ip = remote_ip()
 	end
