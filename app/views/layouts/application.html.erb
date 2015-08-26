@@ -24,6 +24,8 @@ function a(t){var  a=e.createElement("script");a.type="text/javascript" ,a.async
 
 <body>
 <div id="fullpage">
+<% if notice %><div class="alert alert-success" role="alert"><%= notice %></div><% end %>
+<% if alert %><div class="alert alert-danger" role="alert"><%= alert %></div><% end %>
 <% if @navbar %>
 	<header>
 		<div class="container">
@@ -35,9 +37,16 @@ function a(t){var  a=e.createElement("script");a.type="text/javascript" ,a.async
 							<input type="text" class="search-field" placeholder="Buscar">
 						</form>
 					</li>
+					<% if user_signed_in? %>
+					<li><%= link_to current_user.email, edit_user_registration_path %></li>
 					<li>
-						<a href="" class="">Ingresar</a>
+						<%= link_to "Salir", destroy_user_session_path, method: :delete %>
 					</li>
+					<% else %>
+					<li>
+						<%= link_to "Ingresar", new_user_session_path %>
+					</li>
+					<% end %>
 					<li>
 						<a href="" class="donate-button">Donate</a>
 					</li>
@@ -51,18 +60,8 @@ function a(t){var  a=e.createElement("script");a.type="text/javascript" ,a.async
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4 column-4">
-					<h3>Suscribete</h3>
-					<% @country = Geocoder::search(@client_ip).first.country %>
-					<%= form_for Lead.new, :remote => true do |f| %>
-						<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-						<div class="outline-submit">
-						<%= f.email_field :email, placeholder:'Email' %>
-						<%= f.hidden_field :device, :value => request.env['mobvious.device_type'] %>
-						<%= f.hidden_field :country, :value => @country %>
-						<%= f.button 'OK', {class: 'button-submit'} %>	
-						<p id="response"></p>		
-						</div>
-					<% end %>					
+					<h3>Yorescato</h3>
+										
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 column-4">
 					<h3>Siguenos en:</h3>

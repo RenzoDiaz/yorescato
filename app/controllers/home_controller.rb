@@ -4,7 +4,6 @@ class HomeController < ApplicationController
 	protect_from_forgery with: :exception
 	def index		
 		@statuses = Status.all
-		@maps = true
 		@client_ip = remote_ip()
 	end
 end

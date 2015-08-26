@@ -5,7 +5,6 @@ class SpeciesController < ApplicationController
 	def index
 		@species = Specie.all
 		@navbar = true
-		@client_ip = remote_ip()
 	end
 
 	def create
@@ -28,14 +27,12 @@ class SpeciesController < ApplicationController
 
 	def new 
 		@navbar = true
-		@client_ip = remote_ip()
 	end
 
 	def show
 		@specie = Specie.friendly.find(params[:id])
 		@title = @specie.name
 		@navbar = true
-		@client_ip = remote_ip()
 	end
 
 	private 

@@ -5,6 +5,19 @@
 				<h1><%= image_tag 'logo.png' %></h1>
 				<p>Ayudemos a los animales en peligro de extinción</p>
 				<hr class="divisor">
+				<div class="form">
+					<% @country = Geocoder::search(@client_ip).first.country %>
+					<%= form_for Lead.new, :remote => true do |f| %>
+						<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+						<div class="outline-submit">
+						<%= f.email_field :email, placeholder:'Suscribirse' %>
+						<%= f.hidden_field :device, :value => request.env['mobvious.device_type'] %>
+						<%= f.hidden_field :country, :value => @country %>
+						<%= f.button 'OK', {class: 'button-submit'} %>	
+						<p id="response"></p>		
+						</div>
+					<% end %>
+				</div>
 				<div class="buttons">
 				<%= link_to "Ver lista de animales", species_index_path(), class: "button-main fill" %>
 					<a href="#hth" class="button-main empty">¿Cómo ayudar?</a>
@@ -53,8 +66,8 @@
 				</ul>				
 			</div>
 			<div class="col-lg-8 column-8">
-				<div style='width: 100%;'>
-					<div id="map" style="width:100%; height: 400px;"></div>
+				<div class="map">
+					<%= image_tag '/assets/images/map.png' %>
 				</div>
 			</div>
 		</div>
@@ -70,7 +83,7 @@
 					<i class="icon volunteer-ico"></i>
 					<h3>Voluntario</h3>
 					<p>Gracias por su interés en ser voluntario! las especies en peligro de extinción necesitan ayuda todos los días del año.</p>
-					<a href="" class="button-main fill">Dona tu tiempo!</a>
+					<%= link_to "Dona tu tiempo!", new_user_registration_path, :class => 'button-main fill' %>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 column-3">
 					<i class="icon donate-ico"></i>

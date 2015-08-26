@@ -9,5 +9,5 @@ class ApplicationController < ActionController::Base
 		else
 		request.remote_ip
 		end
-	end
+	end	
 end

@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -63,3 +63,5 @@ gem 'ckeditor_rails'
 gem 'country_select'
 # Friendly ID
 gem 'friendly_id', '~> 5.1.0'
+# Device
+gem 'devise', '~> 3.5.2'
