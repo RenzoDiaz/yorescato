@@ -2,17 +2,29 @@
 	<div class="overlay">
 		<div class="container">
 			<article class="info-main">
-				<h1><%= image_tag 'logoyorescato.png' %></h1>
+				<h1><%= image_tag 'logo.png' %></h1>
 				<p>Ayudemos a los animales en peligro de extinción</p>
 				<hr class="divisor">
+				<div class="form">
+					<% @country = Geocoder::search(@client_ip).first.country %>
+					<%= form_for Lead.new, :remote => true do |f| %>
+						<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+						<div class="outline-submit">
+						<%= f.email_field :email, placeholder:'Suscribirse' %>
+						<%= f.hidden_field :device, :value => request.env['mobvious.device_type'] %>
+						<%= f.hidden_field :country, :value => @country %>
+						<%= f.button 'OK', {class: 'button-submit'} %>	
+						<p id="response"></p>		
+						</div>
+					<% end %>
+				</div>
 				<div class="buttons">
-				<%= link_to "Ver lista de animales", species_path(), class: "button-main fill" %>
+				<%= link_to "Ver lista de animales", species_index_path(), class: "button-main fill" %>
 					<a href="#hth" class="button-main empty">¿Cómo ayudar?</a>
 				</div>
 			</article>
 			<div class="down">
-				<i class="icon down-ico">SCROLL</i>
-			</div>
+				<%= image_tag('scroll.gif') %>
 		</div>
 	</div>	
 </section>
@@ -20,7 +32,7 @@
 	<div class="container">
 		<h2>Acerca</h2>
 		<hr class="divisor">
-		<p>Sómos una comunidad protectora de animales que busca ayudar a las especies que se encuentran en peligro de extinsión en Perú, nuestro principal objetivo es ser una herramienta para facilitar a las organizaciones que estan interesados por la protección de los animales y asi poder rescatar y aumentart las especies que estan a punto de desaparecer.</p>
+		<p>Somos una comunidad protectora de animales que busca ayudar a las especies que se encuentran en peligro de extinción en Perú, nuestro principal objetivo es ser una herramienta para facilitar a las organizaciones que estan interesados por la protección de los animales y así poder rescatar y aumentar las especies que están a punto de desaparecer.</p>
 	</div>
 </section>
 <section class="video">
@@ -34,38 +46,29 @@
 </section>
 <section class="categories">
 	<div class="container">
-		<h2>Ubicación por Categoria</h2>
+		<h2>Categorias y Ubicacón</h2>
 		<hr class="divisor">
 		<div class="row">
 			<div class="col-lg-4 column-4">
 				<ul>
-					<p>Categorias de Extinción</p>
+				<% if @statuses.empty? %>
+					<p>No hay se encontraron categorias</p>
+				<% else %>
+					<% @statuses.each do |status| %>
 					<li>
 						<div class="circle ep">
-							<p>EP</p>
+							<p><%= status.prefix %></p>
 						</div>
-						<h3>(20) En Peligro de extinsión</h3>
+						<h3><%= status.name %></h3>
 					</li>
-					<li>
-						<div class="circle am">
-							<p>AM</p>
-						</div>
-						<h3>(20) Amenaza de extinsión</h3>
-					</li><li>
-						<div class="circle vn">
-							<p>VN</p>
-						</div>
-						<h3>(20) Vulnerables</h3>
-					</li>
+					<% end %>					
+				<% end %>
 				</ul>				
 			</div>
 			<div class="col-lg-8 column-8">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et architecto incidunt amet aliquam accusamus ratione explicabo nemo, saepe officia dolor quas corporis, sit numquam, rem reiciendis possimus voluptas magni expedita.
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis unde quas, soluta sequi repellendus impedit non quae asperiores fugit provident modi autem vel laboriosam, molestias veritatis adipisci consequatur veniam, minima?				
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste ad temporibus iure odit dolorem magni adipisci non eaque aspernatur. Voluptatem alias minima eligendi, deleniti quam ducimus eius ratione odit. Non.	
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit quo, mollitia, dolore aut enim expedita. Expedita dolor, accusamus perspiciatis in illum cumque ad recusandae ab consequuntur error a fugit, sequi?
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt dolorem dignissimos dolore, deleniti. Vel, alias. Magni quod architecto voluptas non impedit porro, illo, ipsa quas laboriosam quam facilis nam et.
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, libero ex, quas ipsam explicabo atque laborum quisquam facilis tempora doloremque dolor ipsa laudantium ad a saepe dolorum ab, repellat numquam.
+				<div class="map">
+					<%= image_tag '/assets/images/map.png' %>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -79,25 +82,25 @@
 				<div class="col-lg-3 col-md-3 col-sm-3 column-3">
 					<i class="icon volunteer-ico"></i>
 					<h3>Voluntario</h3>
-					<p>Gracias por su interes en ser voluntario! los animales en peligro de extinsión necesitan ayuda tosos los dias del año.</p>
-					<a href="" class="button-main fill">Dona tu tiempo!</a>
+					<p>Gracias por su interés en ser voluntario! las especies en peligro de extinción necesitan ayuda todos los días del año.</p>
+					<%= link_to "Dona tu tiempo!", :class => 'button-main fill' %>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 column-3">
 					<i class="icon donate-ico"></i>
-					<h3>Dona</h3>
+					<h3>Patrocina</h3>
 					<p>Apoya a los proyectos o eventos, formemos un equilibro ecológico para el bienestar de todos.</p>
 					<a href="" class="button-main fill">Ayuda hoy!</a>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 column-3">
 					<i class="icon partner-ico"></i>
-					<h3>Aliado</h3>
-					<p>Registra tu ong, crea un proyecto para un animal en peligro de extinsion o crea eventos.</p>
+					<h3>Institución</h3>
+					<p>Registra tu ONG, crea un proyecto para ayudar a una especie en extinción o crea eventos.</p>
 					<a href="" class="button-main fill">Suma tu ONG!</a>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 column-3">
-					<i class="icon partner-ico"></i>
+					<i class="icon collaborator-ico"></i>
 					<h3>Colaborador</h3>
-					<p>Nuestra lista no esta 100% completa, ¿conoces algun animal en peligro que no esta en la lista? añadelo tu mismo!</p>
+					<p>Nuestra lista no está 100% completa, ¿conoces alguna especie en peligro que no está en la lista? Añádelo tú mismo!</p>
 					<a href="" class="button-main fill">Agrega Animales</a>
 				</div>
 			</div>
@@ -264,4 +267,3 @@
 		</div>
 	</div>
 </section>
-

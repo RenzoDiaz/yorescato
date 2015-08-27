@@ -1,9 +1,9 @@
-<section class="specie-profile">
+<section class="shrines-profile">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3 sidebar-specie">
+			<div class="col-lg-3 sidebar-shrines">
 				<figure>
-					<%= image_tag "/species/#{@specie.id}/profile/#{@specie.image}"%>
+					<%= image_tag "/shriness/#{@shrines.id}/profile/#{@shrines.image}"%>
 				</figure>
 				<ul>
 					<li class="active">
@@ -22,16 +22,16 @@
 			</div>
 			<div class="col-lg-9 content-sidebar">
 				<article class="spec">
-					<h3><%= @specie.name %></h3>
-					<p><%= @specie.scientific_name %></p>
+					<h3><%= @shrines.name %></h3>
+					<p><%= @shrines.scientific_name %></p>
 					<div class="detail">
 						<div class="col-lg-4 column-4">
 							<div class="circle ep">
-								<p><%= Status.find(@specie.statuses_id).prefix %></p>
+								<p><%= Status.find(@shrines.statuses_id).prefix %></p>
 							</div>
 							<div class="wrap">
 								<p>ESTADO</p>
-								<span><%= Status.find(@specie.statuses_id).name %></span>
+								<span><%= Status.find(@shrines.statuses_id).name %></span>
 							</div>						
 						</div>
 						<div class="col-lg-4 column-4">
@@ -40,30 +40,30 @@
 							</div>							
 							<div class="wrap">
 								<p>POBLACIÓN</p>
-								<span><%= @specie.population %></span>
+								<span><%= @shrines.population %></span>
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<a href="">Adoptar</a>
 						</div>
 					</div>
-					<div id="desc" class="info-specie">
+					<div id="desc" class="info-shrines">
 						<h4>Vista General</h4>
-						<%= @specie.description.html_safe %>
+						<%= @shrines.description.html_safe %>
 					</div>
-					<div id="habitat" class="info-specie">
+					<div id="habitat" class="info-shrines">
 						<h4>Habitat</h4>
-						<p><%= @specie.habitat %></p>
+						<p><%= @shrines.habitat %></p>
 					</div>
-					<div id="diet" class="info-specie">
+					<div id="diet" class="info-shrines">
 						<h4>Alimentación</h4>
-						<%= @specie.nutrition.html_safe %>
+						<%= @shrines.nutrition.html_safe %>
 					</div>
-					<div id="threat" class="info-specie">
+					<div id="threat" class="info-shrines">
 						<h4>Amenzas</h4>
-						<%= @specie.threats.html_safe %>
+						<%= @shrine.threats.html_safe %>
 					</div>
-					<div id="spot-im-frame-inpage" data-post-id="<%= @specie.id %>"></div>
+					<div id="spot-im-frame-inpage" data-post-id="<%= @shrine.id %>"></div>
 				</article>							
 			</div>				
 		</div>

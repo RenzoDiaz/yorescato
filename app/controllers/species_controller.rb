@@ -3,9 +3,8 @@ class SpeciesController < ApplicationController
 	# For APIs, you may want to use :null_session instead.
 	protect_from_forgery with: :exception
 	def index
-		@species = Specie.all
+		@species = Specie.paginate(:page => params[:page], :per_page => 10)
 		@navbar = true
-		@client_ip = remote_ip()
 	end
 
 	def create
@@ -28,10 +27,13 @@ class SpeciesController < ApplicationController
 
 	def new 
 		@navbar = true
-		@client_ip = remote_ip()
 	end
 
-
+	def show
+		@specie = Specie.friendly.find(params[:id])
+		@title = @specie.name
+		@navbar = true
+	end
 
 	private 
 

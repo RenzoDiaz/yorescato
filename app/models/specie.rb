@@ -1,8 +1,9 @@
 class Specie < ActiveRecord::Base
-	belongs_to :statuses
+	extend FriendlyId
+  	friendly_id :name, use: :slugged
+  	belongs_to :statuses
 	belongs_to :shrines
-
-
+	
 	validates :name, :scientific_name, :country, :population, :statuses_id, :need, :habitat, :description, :nutrition, :threats, presence: true
 
 	attr_accessor :picture
@@ -23,6 +24,6 @@ class Specie < ActiveRecord::Base
 		self.picture = nil
 
 		update image: filename
-	end
+	end	
 
 end

@@ -2,10 +2,12 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>Yorescato</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <title><%= @title + " |" if @title %> Yorescato</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag 'favicon.png' %>
+    <%= csrf_meta_tags %>
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,9 +18,14 @@
 	ga('send', 'pageview');
 
 </script>
+<script type="text/javascript">!function(t,e,n){
+function a(t){var  a=e.createElement("script");a.type="text/javascript" ,a.async=!0,a.src=("https:"===e.location.protocol?"https":"http")+":"+n,(t||e.body||e.head).appendChild(a)}function o(){var  t=e.getElementsByTagName("script"),n=t[t.length-1];return n.parentNode} var  p=o();t.spotId="sp_n5CnvPP2",t.parentElement=p,a(p)}(window.SPOTIM={},document,"//www.spot.im/launcher/bundle.js");</script>
 </head>
+
 <body>
 <div id="fullpage">
+<% if notice %><div class="alert alert-success" role="alert"><%= notice %></div><% end %>
+<% if alert %><div class="alert alert-danger" role="alert"><%= alert %></div><% end %>
 <% if @navbar %>
 	<header>
 		<div class="container">
@@ -30,8 +37,9 @@
 							<input type="text" class="search-field" placeholder="Buscar">
 						</form>
 					</li>
+					
 					<li>
-						<a href="" class="">Ingresar</a>
+						<%= link_to "Ingresar" %>
 					</li>
 					<li>
 						<a href="" class="donate-button">Donate</a>
@@ -46,18 +54,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4 column-4">
-					<h3>Suscribete</h3>
-					<% @country = Geocoder::search(@client_ip).first.country %>
-					<%= form_for Lead.new, :remote => true do |f| %>
-						<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-						<div class="outline-submit">
-						<%= f.email_field :email, placeholder:'Email' %>
-						<%= f.hidden_field :device, :value => request.env['mobvious.device_type'] %>
-						<%= f.hidden_field :country, :value => @country %>
-						<%= f.button 'OK', {class: 'button-submit'} %>	
-						<p id="response"></p>		
-						</div>
-					<% end %>					
+					<h3>Yorescato</h3>
+										
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 column-4">
 					<h3>Siguenos en:</h3>

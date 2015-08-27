@@ -4,7 +4,7 @@ $text: #6C7A89;
 $naranja2: #E67E22;
 $naranja:  #f99d29;
 $overlay: #161824;
-$rojo: #e74b3b ;
+$rojo: #E67E22;//e74b3b ;
 // Fonts
 
 @font-face {
@@ -42,6 +42,13 @@ $rojo: #e74b3b ;
 	font-style: normal;
 }
 // General Classes
+.alert {
+	padding:.5em !important;
+	position:absolute;
+	right:3%;
+	top:3%;
+	z-index:999;
+}
 .button-main {
 	border-radius:5px;
 	color:#fff;		
@@ -78,12 +85,11 @@ $rojo: #e74b3b ;
 	border-radius:50%;
 	color:#fff;
 	display:inline-block;
-	height:42px;
+	height:32px;
 	margin:0 5px;
-	padding-top:4px;
 	transition:all .3s ease;
 	vertical-align:top;
-	width:42px;
+	width:32px;
 }
 .divisor{
 	background:rgb(232,75,60);
@@ -244,6 +250,50 @@ header {
 				.buttons{
 					margin-top: 120px;					
 				}
+				.form {
+					margin:3em auto;		
+					max-width:400px;
+					form {										
+						.outline-submit {
+							position:relative;
+							input {
+								background:none;
+								border:1px solid #807D8E;
+								border-radius: .3em;
+								color:$rojo;
+								outline:none;
+								padding: .5em 2.5em .5em .75em;
+								transition:all .3s ease;							
+								width:100%;
+							}
+							input:focus {
+								border:1px solid $rojo;
+							}
+
+							.button-submit {
+								background:none;
+								border:0;
+								color:#807D8E;
+								width:50px;
+								text-align:right;
+								font-weight:bold;
+								outline:none;
+								padding: .5em .75em;
+								position:absolute;
+								top:0;
+								transition:all .3s ease;
+								right:0;
+								z-index:2;
+							}
+							.button-submit:hover {
+								color: $rojo;
+							}
+							#response {
+								font-size:16px;
+							}
+						}					
+					}
+				}				
 			}
 			.down{
 				bottom:3%;
@@ -251,11 +301,7 @@ header {
 				font-size:.75em;
 				left:0;
 				position:absolute;
-				right:0;
-				.down-ico:after {
-					content: '\e006';
-					margin-left:5px;
-				}
+				right:0;				
 			}
 		}
 
@@ -317,7 +363,7 @@ header {
 				ul {
 					border-left:1px solid $rojo;
 					li {
-						margin: 1em;
+						margin: .5em 1em;
 						text-align:left;
 						.circle	{
 							display:inline-block;
@@ -331,12 +377,6 @@ header {
 						.ep {
 							background: $rojo;
 						}
-						.am {
-							background: $naranja;
-						}
-						.vn {
-							background: #B3B3B3;
-						}
 						h3 {
 							display:inline-block;
 							font-size:1.2em;
@@ -348,6 +388,11 @@ header {
 			}
 			.column-8 {
 				text-align:left;
+				.map{
+					img {
+						width:100%;
+					}
+				}
 			}
 		}
 
@@ -382,7 +427,7 @@ header {
 						text-decoration:none;						
 					}
 					.volunteer-ico:before {
-						content: '\e005';
+						content: '\e006';
 						font-size:5em;
 					}
 					.donate-ico:before {
@@ -390,7 +435,11 @@ header {
 						font-size:5em;
 					}
 					.partner-ico:before {
-						content: '\e004';
+						content: '\e005';
+						font-size:5em;
+					}
+					.collaborator-ico:before {
+						content: '\e000';
 						font-size:5em;
 					}
 				}
@@ -494,7 +543,7 @@ header {
 							}
 							.google-ico:before {								
 								color:white;
-								content: '\e003';
+								content: '\e004';
 								font-size:1em;
 								margin-left:5px;
 							}
@@ -525,65 +574,28 @@ footer {
 	text-align:left;
 	.container {
 		.row {
-			.column-4 {
-				form {
-					.outline-submit {
-						position:relative;
-						input {
-							background:none;
-							border:1px solid #807D8E;
-							border-radius: .3em;
-							color:$rojo;
-							outline:none;
-							padding: .5em 2.5em .5em .75em;
-							transition:all .3s ease;							
-							width:100%;
-						}
-						input:focus {
-							border:1px solid $rojo;
-						}
-
-						.button-submit {
-							background:none;
-							border:0;
-							color:#807D8E;
-							width:50px;
-							text-align:right;
-							font-weight:bold;
-							outline:none;
-							padding: .5em .75em;
-							position:absolute;
-							top:0;
-							transition:all .3s ease;
-							right:0;
-							z-index:2;
-						}
-						.button-submit:hover {
-							color: $rojo;
-						}
-					}					
-				}
+			.column-4 {				
 				.socials-icon {
 					
 					.facebook-ico:before {
 						content: '\e002';
-						font-size:1.5em;
-						margin-left:8px;
+						font-size:1.2em;
+						margin-left:6px;
 					}
 					.twitter-ico:before {
 						content: '\e009';
-						font-size:1.5em;
-						margin-left:8px;
+						font-size:1.2em;
+						margin-left:7px;
 					}
 					.google-ico:before {
-						content: '\e003';
-						font-size:1.5em;
-						margin-left:10px;
+						content: '\e004';
+						font-size:1.2em;
+						margin-left:8px;
 					}
 					.youtube-ico:before {
 						content: '\e00a';
-						font-size:1.5em;
-						margin-left:8px;
+						font-size:1.2em;
+						margin-left:6px;
 					}
 					.facebook-ico:hover {
 						background:#3b5998;
@@ -727,6 +739,126 @@ footer {
 			h3 {
 				color: $naranja2;
 			}
+		}
+	}
+}
+
+// Specie profile
+
+.specie-profile {
+	padding:4em 1em 3em 1em;
+	.container {
+		background:white;
+		border: 1px solid #f9f9d9;
+		border-radius: .5em;
+		.row {
+			.sidebar-specie{				
+				padding: .75em;
+				figure {
+					img {
+						width:100%;
+					}
+				}
+				ul {
+					li {
+						background: #DCDCDC;
+						margin-bottom:.1em;
+						position:relative;
+						text-align:left;
+						a {
+							display:block;
+							color:$text;
+							padding: .75em .5em .75em 1.5em;
+						}
+					}
+					li:before {
+						background: $naranja2;
+						content: ' ';
+						height:46px;
+						opacity:.8;
+						position:absolute;
+						width: 15px;
+						z-index:1;
+					}
+					.active {
+						background:white;
+						a {
+							color:$naranja2;
+						}						
+					}
+					.active:before {
+						opacity:1;
+					}
+				}
+			}
+			.content-sidebar {
+				text-align:left;
+				.spec {
+					h3 {
+						color: $text;
+						font-size: 2em;
+						margin:.3em 0 0 0;
+					}
+					.detail {
+						border-bottom: 1px solid #d9d9d9;
+						padding-bottom:1em;
+						overflow:hidden;
+						.column-4 {
+							.ep {
+								background: $naranja2;	
+								display: inline-block;	
+								height:46px;
+								width:46px;
+								p {
+									color:white;
+									margin-left: .8em;
+									margin-top:.65em;
+								}					
+							}
+							.wrap {
+								display:inline-block;
+								vertical-align:top;
+								p {
+									color: $text;
+									font-weight:bolder;
+									margin:0;
+								}
+								span {
+									color:$text;
+									margin:0;
+								}
+							}
+							.icono {
+								display:inline-block;
+								height:56px;
+								position:relative;
+								width: 60px;
+								.fish-group-ico:before {
+									color:$text;
+									content: '\e003';
+									font-size:3.5em;
+									position: absolute;
+									top: -15px;
+								}
+							}							
+						}
+					}
+					.info-specie {
+						clear:both;
+						display:block;
+						padding-top:2em;
+						text-align:left;
+						h4 {
+							color: $text;
+							font-weight: bolder;
+						}
+						p {
+							font-size: 1.2em;
+						}
+					}
+				}
+			}			
+
 		}
 	}
 }

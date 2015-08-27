@@ -23,7 +23,6 @@ class StatusesController < ApplicationController
 
 	def new
 		@navbar = true
-		@client_ip = remote_ip()
 	end
 
 	def show 
