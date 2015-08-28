@@ -32,6 +32,14 @@ function a(t){var  a=e.createElement("script");a.type="text/javascript" ,a.async
 			<h1><a href="/"><%= image_tag 'logoyorescato.png' %></a></h1>
 			<nav class="menu-top">
 				<ul>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">- Listar -<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><%= link_to "Especies", species_index_path() %></li>
+							<li role="separator" class="divider"></li>
+							<li><%= link_to "Santuarios", shrines_path() %></li>
+						</ul>
+					</li>
 					<li>
 						<form action="">
 							<input type="text" class="search-field" placeholder="Buscar">

@@ -11,7 +11,8 @@ class SpeciesController < ApplicationController
 			Specie, 
 			params[:filterrific],
 			select_options: {
-				with_statuses_id: Status.options_for_select
+				with_statuses_id: Status.options_for_select,
+				with_families_id: Family.options_for_select
 			},
 			persistence_id: 'shared_key',
 			) or return 
@@ -56,7 +57,7 @@ class SpeciesController < ApplicationController
 	private 
 
 	def lead_params
-		params.require(:specie).permit(:name, :scientific_name, :country, :population, :statuses_id, :shrines_id, :need, :picture, :habitat, :description, :nutrition, :threats)
+		params.require(:specie).permit(:name, :scientific_name, :country, :population, :statuses_id, :shrines_id, :families_id, :need, :picture, :habitat, :description, :nutrition, :threats)
 	end
 
 end

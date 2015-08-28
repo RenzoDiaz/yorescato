@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826042349) do
+ActiveRecord::Schema.define(version: 20150828161927) do
+
+  create_table "families", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -41,7 +48,10 @@ ActiveRecord::Schema.define(version: 20150826042349) do
     t.string   "image",       limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "slug",        limit: 255
   end
+
+  add_index "shrines", ["slug"], name: "index_shrines_on_slug", unique: true, using: :btree
 
   create_table "species", force: :cascade do |t|
     t.integer  "statuses_id",     limit: 4
@@ -59,8 +69,10 @@ ActiveRecord::Schema.define(version: 20150826042349) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "slug",            limit: 255
+    t.integer  "families_id",     limit: 4
   end
 
+  add_index "species", ["families_id"], name: "index_species_on_families_id", using: :btree
   add_index "species", ["slug"], name: "index_species_on_slug", unique: true, using: :btree
 
   create_table "statuses", force: :cascade do |t|

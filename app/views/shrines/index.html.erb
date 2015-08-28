@@ -1,0 +1,28 @@
+<section class="filter">
+  <div class="container">
+    <div class="row">
+      <%= form_for_filterrific @filterrific do |f| %>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <p>Filtrar Santuarios:</p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+            <%= f.text_field(:search_query, class: 'filterrific-periodically-observed form-control', placeholder: 'Buscar Santuario') %>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <%= link_to('Limpiar',reset_filterrific_url, class: 'btn btn-info') %>
+          </div>
+        </div>
+        <%# add an automated spinner to your form when the list is refreshed %>
+        <%= render_filterrific_spinner %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<%= render(partial: 'shrines/list', locals: { shrines: @shrines }) %>
+

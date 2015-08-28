@@ -21,6 +21,10 @@
 					<%= f.select :statuses_id, options_from_collection_for_select(Status.all, :id, :name), :class => "form-control" %>
 				</div>
 				<div class="form-group">
+					<%= f.label 'Seleccione  familia:' %> 
+					<%= f.select :families_id, options_from_collection_for_select(Family.all, :id, :name), :class => "form-control" %>
+				</div>
+				<div class="form-group">
 					<%= f.label 'Seleccione un santuario:' %> 
 					<%= f.select :shrines_id, options_from_collection_for_select(Shrine.all, :id, :name), :class => "form-control" %>
 				</div>

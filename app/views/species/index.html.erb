@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <%= form_for_filterrific @filterrific do |f| %>
-        <div class="col-lg-3">
+        <div class="col-lg-2">
           <div class="form-group">
             <p>Filtrar Especies:</p>
           </div>
@@ -16,12 +16,16 @@
         <div class="col-lg-3">
           <div class="form-group">
             <%= f.select(:with_statuses_id, @filterrific.select_options[:with_statuses_id],
-            { include_blank: "- Todos -" }, class: 'form-control') %>            
+            { include_blank: "- Seleccione la Categoria-" }, class: 'form-control') %>            
           </div>
         </div>
         <div class="col-lg-3">
+          <%= f.select(:with_families_id, @filterrific.select_options[:with_families_id],
+            { include_blank: "- Seleccione Familia-" }, class: 'form-control') %>          
+        </div>
+        <div class="col-lg-1">
           <div class="form-group">
-            <%= link_to('Reset filters',reset_filterrific_url) %>
+            <%= link_to('Limpiar',reset_filterrific_url, class: 'btn btn-info') %>
           </div>
         </div>
         <%# add an automated spinner to your form when the list is refreshed %>
@@ -30,4 +34,4 @@
     </div>
   </div>
 </section>
-      <%= render(partial: 'species/list', locals: { species: @species }) %>
+<%= render(partial: 'species/list', locals: { species: @species }) %>

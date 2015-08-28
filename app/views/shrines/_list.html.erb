@@ -1,23 +1,24 @@
-<section class="list-animals">
+<section class="list-animals shrines-section" id="filterrific_re">
 	<div class="container">
 		<div class="row">
 			<article class="list-item">
 				<ul class="tile-gallery">
-			<% if @shrines.empty? %> 
-					<p>No se encontraron eshriness en la lista!</p>				
+			<% if shrines.empty? %> 
+					<p>Lo siento no se encontró el santuario que buscas <%= link_to "Agrégalo", new_shrine_path %></p>			
 			<% else %>
-				<% @shrines.each do |shrine| %>
+				<% shrines.each do |shrine| %>
 					<li class="col-lg-6 col-md-6 col-sm-6 column-6">
-						<div class="shrines-item">
+						<div class="specie-item">
 							<figure>
 								<a href=""><%= image_tag "/shrines/#{shrine.id}/profile/#{shrine.image}" if shrine.image? %></a>
 							</figure>
-							<div class="details-of-shrines">
+							<div class="details-of-specie">
 								<div class="head-name">
 									<h3><a href=""><%= shrine.name %></a></h3>
 								</div>
-								<div class="shriness-habitat">
-									
+								<br>
+								<div class="specie-habitat">
+									<%= link_to "Ver Perfil", shrine, class: 'btn btn-warning' %>
 								</div>
 							</div>
 						</div>
@@ -27,5 +28,6 @@
 				</ul>
 			</article>
 		</div>
+		<%= will_paginate shrines , renderer: BootstrapPagination::Rails %>
 	</div>
 </section>

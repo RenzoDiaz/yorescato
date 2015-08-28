@@ -5,7 +5,7 @@
       <article class="list-item">
         <ul class="tile-gallery">
       <% if species.empty? %>
-        <p>Lo siento no se encontró la especie que buscas <a href="">Agrégalo</a></p>
+        <p>Lo siento no se encontró la especie que buscas <%= link_to "Agrégalo", new_species_path %></p>
       <% else %>
         <% species.each do |specie| %>
           <li class="col-lg-6 col-md-6 col-sm-6 column-6">

@@ -1,7 +1,20 @@
 class ShrinesController < ApplicationController
 	def index
-		@shrines = Shrine.all
 		@navbar = true
+
+		# Filterrific
+		@filterrific = initialize_filterrific(
+			Shrine, 
+			params[:filterrific],
+			persistence_id: 'shared_key',
+			) or return 
+			@shrines = @filterrific.find.paginate(:page => params[:page], :per_page => 1)
+
+		# Ajax
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 	def create
 		@shrines = Shrine.new lead_params
@@ -21,6 +34,12 @@ class ShrinesController < ApplicationController
 		end
 	end
 	def new 
+		@navbar = true
+	end
+
+	def show
+		@shrines = Shrine.friendly.find(params[:id])
+		@title = @shrines.name
 		@navbar = true
 	end
 

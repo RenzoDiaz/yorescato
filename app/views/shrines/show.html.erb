@@ -1,69 +1,24 @@
-<section class="shrines-profile">
+<section class="specie-profile">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3 sidebar-shrines">
+			<div class="col-lg-3 sidebar-specie">
 				<figure>
-					<%= image_tag "/shriness/#{@shrines.id}/profile/#{@shrines.image}"%>
+					<%= image_tag "/shrines/#{@shrines.id}/profile/#{@shrines.image}"%>
 				</figure>
 				<ul>
 					<li class="active">
 						<a href="#desc">Descripción</a>
-					</li>
-					<li>
-						<a href="#habitat">Habitat</a>
-					</li>
-					<li>
-						<a href="#diet">Dieta</a>
-					</li>
-					<li>
-						<a href="#threat">Amenaza</a>
 					</li>
 				</ul>
 			</div>
 			<div class="col-lg-9 content-sidebar">
 				<article class="spec">
 					<h3><%= @shrines.name %></h3>
-					<p><%= @shrines.scientific_name %></p>
-					<div class="detail">
-						<div class="col-lg-4 column-4">
-							<div class="circle ep">
-								<p><%= Status.find(@shrines.statuses_id).prefix %></p>
-							</div>
-							<div class="wrap">
-								<p>ESTADO</p>
-								<span><%= Status.find(@shrines.statuses_id).name %></span>
-							</div>						
-						</div>
-						<div class="col-lg-4 column-4">
-							<div class="icono">
-								<i class="icon fish-group-ico"></i>
-							</div>							
-							<div class="wrap">
-								<p>POBLACIÓN</p>
-								<span><%= @shrines.population %></span>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<a href="">Adoptar</a>
-						</div>
-					</div>
-					<div id="desc" class="info-shrines">
+					<div id="desc" class="info-specie">
 						<h4>Vista General</h4>
 						<%= @shrines.description.html_safe %>
 					</div>
-					<div id="habitat" class="info-shrines">
-						<h4>Habitat</h4>
-						<p><%= @shrines.habitat %></p>
-					</div>
-					<div id="diet" class="info-shrines">
-						<h4>Alimentación</h4>
-						<%= @shrines.nutrition.html_safe %>
-					</div>
-					<div id="threat" class="info-shrines">
-						<h4>Amenzas</h4>
-						<%= @shrine.threats.html_safe %>
-					</div>
-					<div id="spot-im-frame-inpage" data-post-id="<%= @shrine.id %>"></div>
+					<div id="spot-im-frame-inpage" data-post-id="<%= @shrines.id %>"></div>
 				</article>							
 			</div>				
 		</div>

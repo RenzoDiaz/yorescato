@@ -11,6 +11,7 @@ class Specie < ActiveRecord::Base
 		available_filters: [
 			:search_query,
 			:with_statuses_id,
+			:with_families_id,
 			#:with_country_id,
 			#:with_created_at_gte
 		]
@@ -19,6 +20,7 @@ class Specie < ActiveRecord::Base
   	# Belongs to
   	belongs_to :statuses
 	belongs_to :shrines
+	belongs_to :families
 
 	scope :search_query, lambda { |query| 
 		return nil  if query.blank?
@@ -48,6 +50,10 @@ class Specie < ActiveRecord::Base
 
 	scope :with_statuses_id, lambda { |statuses_ids|
 		where(statuses_id: [*statuses_ids])
+	}
+
+	scope :with_families_id, lambda { |families_ids|
+		where(families_id: [*families_ids])
 	}
 
 	
