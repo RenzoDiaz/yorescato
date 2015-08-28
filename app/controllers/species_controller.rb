@@ -10,8 +10,12 @@ class SpeciesController < ApplicationController
 		@filterrific = initialize_filterrific(
 			Specie, 
 			params[:filterrific],
+			select_options: {
+				with_statuses_id: Status.options_for_select
+			},
+			persistence_id: 'shared_key',
 			) or return 
-		@species = @filterrific.find.paginate(:page => params[:page], :per_page => 1)
+			@species = @filterrific.find.paginate(:page => params[:page], :per_page => 1)
 
 		# Ajax
 		respond_to do |format|

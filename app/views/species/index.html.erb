@@ -15,11 +15,13 @@
         </div>
         <div class="col-lg-3">
           <div class="form-group">
-            <%= link_to('Reset filters',reset_filterrific_url) %>
+            <%= f.select(:with_statuses_id, @filterrific.select_options[:with_statuses_id],
+            { include_blank: "- Todos -" }, class: 'form-control') %>            
           </div>
         </div>
         <div class="col-lg-3">
           <div class="form-group">
+            <%= link_to('Reset filters',reset_filterrific_url) %>
           </div>
         </div>
         <%# add an automated spinner to your form when the list is refreshed %>

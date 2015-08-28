@@ -4,20 +4,21 @@ class Specie < ActiveRecord::Base
 	extend FriendlyId
   	friendly_id :name, use: :slugged
 
-  	# Belongs to
-  	belongs_to :statuses
-	belongs_to :shrines
 
 	# Filterrific
 	filterrific(
-		#default_filter_params: { : 'id_desc' },
+		#default_filter_params: { with_statuses_id: 'statuses_id_desc' },
 		available_filters: [
-			#:with_statuses_id,
 			:search_query,
+			:with_statuses_id,
 			#:with_country_id,
 			#:with_created_at_gte
 		]
 	)
+
+  	# Belongs to
+  	belongs_to :statuses
+	belongs_to :shrines
 
 	scope :search_query, lambda { |query| 
 		return nil  if query.blank?
@@ -43,6 +44,10 @@ class Specie < ActiveRecord::Base
 			}.join(' AND '),
 			*terms.map { |e| [e] * num_or_conditions }.flatten
 		)
+	}
+
+	scope :with_statuses_id, lambda { |statuses_ids|
+		where(statuses_id: [*statuses_ids])
 	}
 
 	
