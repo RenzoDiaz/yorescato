@@ -16,7 +16,7 @@ class SpeciesController < ApplicationController
 			},
 			persistence_id: 'shared_key',
 			) or return 
-			@species = @filterrific.find.paginate(:page => params[:page], :per_page => 1)
+			@species = @filterrific.find.paginate(:page => params[:page], :per_page => 10)
 
 		# Ajax
 		respond_to do |format|

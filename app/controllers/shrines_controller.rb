@@ -8,7 +8,7 @@ class ShrinesController < ApplicationController
 			params[:filterrific],
 			persistence_id: 'shared_key',
 			) or return 
-			@shrines = @filterrific.find.paginate(:page => params[:page], :per_page => 1)
+			@shrines = @filterrific.find.paginate(:page => params[:page], :per_page => 10)
 
 		# Ajax
 		respond_to do |format|

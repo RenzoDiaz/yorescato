@@ -44,7 +44,10 @@
 							</div>
 						</div>
 						<div class="col-lg-4">
-							<a href="">Adoptar</a>
+						<% if @specie.families_id %>
+							<p>Familia</p>
+							<span><%= Family.find(@specie.families_id).name %></span> 
+						<%end%>
 						</div>
 					</div>
 					<div id="desc" class="info-specie">
