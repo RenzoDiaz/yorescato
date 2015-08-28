@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 	# For APIs, you may want to use :null_session instead.
 	protect_from_forgery with: :exception
 	def index		
-		@statuses = Status.all
+		@shrines = Shrine.all
 		@client_ip = remote_ip()
 	end
 end

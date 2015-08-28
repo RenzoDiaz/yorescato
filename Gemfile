@@ -69,3 +69,7 @@ gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap'
 # Filterrific Filter ActiveRecord
 gem 'filterrific', '~> 2.0.5'
+# Gmaps4rails
+gem 'gmaps4rails'
+# Underscore
+gem 'underscore-rails'

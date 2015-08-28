@@ -17,4 +17,6 @@
 //= require bootstrap-sprockets
 //= require ckeditor-jquery
 //= require filterrific/filterrific-jquery
+//= require underscore
+//= require gmaps/google
 //= require_tree .

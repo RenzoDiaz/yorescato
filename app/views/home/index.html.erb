@@ -46,20 +46,17 @@
 </section>
 <section class="categories">
 	<div class="container">
-		<h2>Categorias y Ubicacón</h2>
+		<h2>Santuarios Nacionales</h2>
 		<hr class="divisor">
 		<div class="row">
 			<div class="col-lg-4 column-4">
 				<ul>
-				<% if @statuses.empty? %>
+				<% if @shrines.empty? %>
 					<p>No hay se encontraron categorias</p>
 				<% else %>
-					<% @statuses.each do |status| %>
+					<% @shrines.each do |shrine| %>
 					<li>
-						<div class="circle ep">
-							<p><%= status.prefix %></p>
-						</div>
-						<h3><%= status.name %></h3>
+						<h3><%= shrine.name %></h3>
 					</li>
 					<% end %>					
 				<% end %>
@@ -67,7 +64,7 @@
 			</div>
 			<div class="col-lg-8 column-8">
 				<div class="map">
-					<%= image_tag '/assets/images/map.png' %>
+					<div id="multi_markers" style="width:100%;height:400px;"></div>
 				</div>
 			</div>
 		</div>
