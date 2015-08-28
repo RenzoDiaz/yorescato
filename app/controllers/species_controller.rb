@@ -3,8 +3,22 @@ class SpeciesController < ApplicationController
 	# For APIs, you may want to use :null_session instead.
 	protect_from_forgery with: :exception
 	def index
-		@species = Specie.paginate(:page => params[:page], :per_page => 10)
+		#@species = Specie.paginate(:page => params[:page], :per_page => 10)
 		@navbar = true
+
+		# Filterrific
+		@filterrific = initialize_filterrific(
+			Specie, 
+			params[:filterrific],
+			) or return 
+		@species = @filterrific.find.paginate(:page => params[:page], :per_page => 1)
+
+		# Ajax
+		respond_to do |format|
+			format.html
+			format.js
+		end
+
 	end
 
 	def create

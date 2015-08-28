@@ -648,8 +648,8 @@ footer {
 	padding: 3em 1em;
 }
 .list-animals {
-	padding: 3em 1em;
 	.container {
+		padding:0;
 		.row {
 			.list-item {
 				.tile-gallery {
@@ -661,6 +661,7 @@ footer {
 							background:white;
 							margin:1em 0;
 							overflow:hidden;
+							padding:0;
 							position:relative;
 							transition:all .3s ease;
 							figure {

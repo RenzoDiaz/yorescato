@@ -16,4 +16,5 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require ckeditor-jquery
+//= require filterrific/filterrific-jquery
 //= require_tree .

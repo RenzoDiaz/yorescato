@@ -67,3 +67,5 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'will_paginate', '~> 3.0.7'
 # Css for Will Paginate
 gem 'will_paginate-bootstrap'
+# Filterrific Filter ActiveRecord
+gem 'filterrific', '~> 2.0.5'

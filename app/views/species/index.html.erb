@@ -1,38 +1,31 @@
-<section class="list-animals">
+<section class="filter">
   <div class="container">
     <div class="row">
-      <article class="list-item">
-        <ul class="tile-gallery">
-      <% if @species.empty? %> 
-          <p>No se encontraron especies en la lista!</p>        
-      <% else %>
-        <% @species.each do |specie| %>
-          <li class="col-lg-6 col-md-6 col-sm-6 column-6">
-            <div class="specie-item">
-              <figure>
-                <a href=""><%= image_tag "/species/#{specie.id}/profile/#{specie.image}" if specie.image? %></a>
-              </figure>
-              <div class="details-of-specie">
-                <div class="head-name">
-                  <h3><a href=""><%= specie.name %></a></h3>
-                  <p><%= specie.scientific_name %></p>
-                </div>
-                <div class="species-habitat">
-                  <p>Habitat: <span>Montañas, America del Sur</span></p>
-                  <p>País: <span><%= specie.country %></span></p>
-                  <p>Categoria: <span><%= Status.find(specie.statuses_id).name %></span></p>
-                </div>
-              </div>
-              <div class="btn-details">
-                <%= link_to ">", specie %>
-              </div>
-            </div>
-          </li>
-        <% end %>           
-      <% end %>  
-        </ul>
-      </article>
+      <%= form_for_filterrific @filterrific do |f| %>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <p>Filtrar Especies:</p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+            <%= f.text_field(:search_query, class: 'filterrific-periodically-observed form-control', placeholder: 'Buscar Especie') %>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+            <%= link_to('Reset filters',reset_filterrific_url) %>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="form-group">
+          </div>
+        </div>
+        <%# add an automated spinner to your form when the list is refreshed %>
+        <%= render_filterrific_spinner %>
+      <% end %>
     </div>
-      <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>     
-  </div>  
+  </div>
 </section>
+      <%= render(partial: 'species/list', locals: { species: @species }) %>
