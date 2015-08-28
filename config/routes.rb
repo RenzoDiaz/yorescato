@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :leads, :statuses, :species, :shrines
+=======
+  devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
+  resources :leads, :statuses, :species
+>>>>>>> 89841beef1f168e378704cb177dbef2633312f76
 
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150828161927) do
 
   create_table "families", force: :cascade do |t|
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 20150828161927) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+=======
+ActiveRecord::Schema.define(version: 20150826042349) do
+>>>>>>> 89841beef1f168e378704cb177dbef2633312f76
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -69,10 +73,15 @@ ActiveRecord::Schema.define(version: 20150828161927) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "slug",            limit: 255
+<<<<<<< HEAD
     t.integer  "families_id",     limit: 4
   end
 
   add_index "species", ["families_id"], name: "index_species_on_families_id", using: :btree
+=======
+  end
+
+>>>>>>> 89841beef1f168e378704cb177dbef2633312f76
   add_index "species", ["slug"], name: "index_species_on_slug", unique: true, using: :btree
 
   create_table "statuses", force: :cascade do |t|

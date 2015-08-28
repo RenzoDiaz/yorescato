@@ -1,4 +1,5 @@
 class Specie < ActiveRecord::Base
+<<<<<<< HEAD
 
 	# Friendly url by id
 	extend FriendlyId
@@ -19,9 +20,16 @@ class Specie < ActiveRecord::Base
 
   	# Belongs to
   	belongs_to :statuses
+=======
+	extend FriendlyId
+  	friendly_id :name, use: :slugged
+
+	belongs_to :statuses
+>>>>>>> 89841beef1f168e378704cb177dbef2633312f76
 	belongs_to :shrines
 	belongs_to :families
 
+<<<<<<< HEAD
 	scope :search_query, lambda { |query| 
 		return nil  if query.blank?
 		# condition query, parse into individual keywords
@@ -58,6 +66,8 @@ class Specie < ActiveRecord::Base
 
 	
 	# Validate if fields empty
+=======
+>>>>>>> 89841beef1f168e378704cb177dbef2633312f76
 	validates :name, :scientific_name, :country, :population, :statuses_id, :need, :habitat, :description, :nutrition, :threats, presence: true
 
 	# this attribute keep value before send to database

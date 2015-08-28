@@ -63,6 +63,7 @@ gem 'ckeditor_rails'
 gem 'country_select'
 # Friendly ID
 gem 'friendly_id', '~> 5.1.0'
+<<<<<<< HEAD
 # Will Paginte
 gem 'will_paginate', '~> 3.0.7'
 # Css for Will Paginate
@@ -73,3 +74,7 @@ gem 'filterrific', '~> 2.0.5'
 gem 'gmaps4rails'
 # Underscore
 gem 'underscore-rails'
+=======
+# Device
+gem 'devise', '~> 3.5.2'
+>>>>>>> 89841beef1f168e378704cb177dbef2633312f76

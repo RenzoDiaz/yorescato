@@ -1,4 +1,5 @@
 class Shrine < ActiveRecord::Base
+<<<<<<< HEAD
 	# Friendly url by id
 	extend FriendlyId
   	friendly_id :name, use: :slugged
@@ -58,4 +59,7 @@ class Shrine < ActiveRecord::Base
 
 		update image: filename
 	end	
+=======
+	
+>>>>>>> 89841beef1f168e378704cb177dbef2633312f76
 end

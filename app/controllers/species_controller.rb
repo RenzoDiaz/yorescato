@@ -5,6 +5,7 @@ class SpeciesController < ApplicationController
 	def index
 		#@species = Specie.paginate(:page => params[:page], :per_page => 10)
 		@navbar = true
+<<<<<<< HEAD
 
 		# Filterrific
 		@filterrific = initialize_filterrific(
@@ -24,6 +25,8 @@ class SpeciesController < ApplicationController
 			format.js
 		end
 
+=======
+>>>>>>> 89841beef1f168e378704cb177dbef2633312f76
 	end
 
 	def create
